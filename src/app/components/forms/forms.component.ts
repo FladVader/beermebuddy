@@ -117,7 +117,7 @@ export class FormsComponent implements OnInit {
 
     this.selectedCategory = {
       id: 0,
-      name: '',
+      name: 'Välj en kategori',
       simple: true,
     };
   }

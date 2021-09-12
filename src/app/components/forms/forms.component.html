@@ -4,7 +4,7 @@
       <div class="card" style="padding:1em;">
         <select [(ngModel)]="selectedCategory" class="form-select form-select-md dropdown-menu-right" (change)="selectChangeHandler($event)"
           aria-label="Default select example">
-
+          <option disabled selected>{{selectedCategory.name}}</option>
           <option *ngFor="let type of types" [ngValue] = "type" >{{type.name}}</option>
 
         </select>
@@ -60,7 +60,7 @@
         </form>
 
                 <!-- NEW QUESTION W/o ANSWER -->
-                <form *ngIf="selectedCategory.simple && selectedCategory.id !=5" [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+                <form *ngIf="selectedCategory.simple && selectedCategory.id !=5 && selectedCategory.id !=0" [formGroup]="questionForm" (ngSubmit)="onSubmit()">
                   <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
                   <input type="hidden" formControlName="name" [(ngModel)]="selectedCategory.name">
 
