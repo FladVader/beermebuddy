@@ -100,18 +100,13 @@ export class FormsComponent implements OnInit {
 
 
     this.newQuestion = this.questionForm.value;
+
   }
 
   onSubmitImage(): void {
     this.newImg = this.imageForm.value;
   }
 
-  // checkType(type: number): boolean {
-
-  //   if(![5,0])includes(type)
-
-  //   return
-  // }
 
   ngOnInit(): void {
 

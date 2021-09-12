@@ -2,10 +2,10 @@
   <div class="row" style="padding-top: 3em;">
     <div class="col-lg-3 col-10 mx-auto">
       <div class="card" style="padding:1em;">
-        <select [(ngModel)]="selectedCategory" class="form-select form-select-md dropdown-menu-right" (change)="selectChangeHandler($event)"
-          aria-label="Default select example">
+        <select [(ngModel)]="selectedCategory" id="select-category" class="form-select form-select-md dropdown-menu-right"
+          (change)="selectChangeHandler($event)" aria-label="Default select example">
           <option disabled selected>{{selectedCategory.name}}</option>
-          <option *ngFor="let type of types" [ngValue] = "type" >{{type.name}}</option>
+          <option *ngFor="let type of types" [ngValue]="type">{{type.name}}</option>
 
         </select>
 
@@ -15,13 +15,13 @@
           <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
           <div class="mb-3">
             <label for="newRandImg" class="form-label">Ny asrolig bild:</label>
-            <input class="form-control" id="newRandImg" [required]='requiredImg' type="text" formControlName="url"
-              placeholder="https://www.förstabildadressen.com">
+            <input class="form-control" id="newRandImg" required type="text" formControlName="url"
+              placeholder="https://www.bildadressen.com">
           </div>
 
           <div class="text-center btn-div">
             <button type="submit" class="btn btn-success bmb-btn" [disabled]="!imageForm.valid" data-bs-toggle="modal"
-              data-bs-target="#previewImageModal">Submit
+              data-bs-target="#previewImageModal">Förhandsgranska
             </button>
           </div>
         </form>
@@ -33,54 +33,58 @@
 
           <div *ngIf="(selectedCategory.id != 4 && selectedCategory.id != 5 )" class="mb-3">
             <label for="newStatement" class="form-label" class="form-label">Fråga:</label>
-            <input class="form-control" id="newStatement" [required]='required' type="text" formControlName="statement"
+            <input class="form-control" id="newStatement" required type="text" formControlName="statement"
               placeholder="Skriv din fråga här...">
           </div>
           <div class="mb-3">
-            <label for="newImg1" class="form-label">Bild#1</label>
-            <input class="form-control" id="newImg1" [required]='requiredImg' type="text" formControlName="img1"
+            <label for="newImg1" class="form-label">Bild-URL #1</label>
+            <input class="form-control" id="newImg1"  type="text" formControlName="img1"
               placeholder="https://www.förstabildadressen.com">
           </div>
 
-                <div *ngIf="!selectedCategory.simple">
-                  <div class="mb-3">
-                    <label for="newAnswer" class="form-label" class="form-label">Svar:</label>
-                    <input class="form-control" id="newAnswer" [required]='requiredAnswer' type="text" formControlName="answer"
-                      placeholder="Skriv svaret här...">
-                  </div>
-                  <div class="mb-3">
-                    <label for="newImg2" class="form-label">Bild#2</label>
-                    <input class="form-control" id="newImg2" type="text" formControlName="img2"
-                      placeholder="https://www.andrabildadressen.com">
-                  </div>
-                </div>
-          <div  class="text-center btn-div">
-            <button data-bs-target="#previewQuestionModal" data-bs-toggle="modal" [disabled]="!questionForm.valid" type="submit" class="btn btn-success bmb-btn" >Submit</button>
+          <div>
+            <div class="mb-3">
+              <label for="newAnswer" class="form-label" class="form-label">Svar:</label>
+              <input class="form-control" id="newAnswer" required type="text"
+                formControlName="answer" placeholder="Skriv svaret här...">
+            </div>
+            <div class="mb-3">
+              <label for="newImg2" class="form-label">Bild-URL #2</label>
+              <input class="form-control" id="newImg2" type="text" formControlName="img2"
+                placeholder="https://www.andrabildadressen.com">
+            </div>
+          </div>
+          <div class="text-center btn-div">
+            <button data-bs-target="#previewQuestionModal" data-bs-toggle="modal" [disabled]="!questionForm.valid"
+              type="submit" class="btn btn-success bmb-btn">Förhandsgranska</button>
           </div>
         </form>
 
-                <!-- NEW QUESTION W/o ANSWER -->
-                <form *ngIf="selectedCategory.simple && selectedCategory.id !=5 && selectedCategory.id !=0" [formGroup]="questionForm" (ngSubmit)="onSubmit()">
-                  <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
-                  <input type="hidden" formControlName="name" [(ngModel)]="selectedCategory.name">
+        <!-- NEW QUESTION W/o ANSWER -->
+        <form *ngIf="selectedCategory.simple && selectedCategory.id !=5 && selectedCategory.id !=0"
+          [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
+          <input type="hidden" formControlName="name" [(ngModel)]="selectedCategory.name">
 
-                  <div class="mb-3">
-                    <label for="newStatement" class="form-label" class="form-label">Fråga:</label>
-                    <input class="form-control" id="newStatement" [required]='required' type="text" formControlName="statement"
-                      placeholder="Skriv din fråga här...">
-                  </div>
-                  <div class="mb-3">
-                    <label for="newImg1" class="form-label">Bild#1</label>
-                    <input class="form-control" id="newImg1" [required]='requiredImg' type="text" formControlName="img1"
-                      placeholder="https://www.förstabildadressen.com">
-                  </div>
-                  <div  class="text-center btn-div">
-                    <button data-bs-target="#previewQuestionModal" data-bs-toggle="modal" [disabled]="!questionForm.valid" type="submit" class="btn btn-success bmb-btn" >Submit</button>
-                  </div>
-                </form>
+          <div class="mb-3">
+            <label for="newStatement" class="form-label" class="form-label">Fråga:</label>
+            <input class="form-control" id="newStatement" required type="text" formControlName="statement"
+              placeholder="Skriv din fråga här...">
+          </div>
+          <div class="mb-3">
+            <label for="newImg1" class="form-label">Bild-URL: (om du vill ha en specifik bild)</label>
+            <input class="form-control" id="newImg1"  type="text" formControlName="img1"
+              placeholder="https://www.förstabildadressen.com">
+          </div>
+          <div class="text-center btn-div">
+            <button data-bs-target="#previewQuestionModal" data-bs-toggle="modal" [disabled]="!questionForm.valid"
+              type="submit" class="btn btn-success bmb-btn">Förhandsgranska</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
 
-<app-preview-add [newImg]="newImg" [newQuestion]="newQuestion" [questionForm]="[questionForm, imageForm]"></app-preview-add>
+<app-preview-add [newImg]="newImg" [newQuestion]="newQuestion" [questionForm]="[questionForm, imageForm]">
+</app-preview-add>

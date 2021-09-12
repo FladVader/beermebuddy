@@ -1,12 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, Sanitizer, ViewChild } from '@angular/core';
-import { NeverHave } from 'src/app/interfaces/neverHave';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
-import { GlobalConstants } from 'src/assets/globals';
 import arrayShuffle from 'array-shuffle';
 import { Question } from 'src/app/interfaces/question';
-import { IdiotComponent } from './type-components/idiot/idiot.component';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { ShowAnswerComponent } from './type-components/show-answer/show-answer.component';
+import { SafeUrl } from '@angular/platform-browser';
 import { RandomImg } from 'src/app/interfaces/randomImg';
 import { FunctionsService } from 'src/app/services/functions.service';
 
@@ -66,7 +62,7 @@ export class ShowQuestionComponent implements OnInit {
         }
       }
 
-      console.log(this.questionsArray);
+      console.log(this.questionsArray.length);
     });
   }
 
@@ -82,7 +78,6 @@ export class ShowQuestionComponent implements OnInit {
       this.index = 0;
     }
 
-    console.log(this.currentQuestion)
   }
 
   nextRandImg(): void {
