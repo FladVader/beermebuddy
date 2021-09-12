@@ -1,0 +1,10 @@
+<img *ngIf="Question!.img1; else simpleQuestion" [src]="sanitizeImageUrl(Question!.img1)" class="card-img-top" alt="..." />
+
+<ng-template #simpleQuestion>
+  <img  [src]="randomImg"  class="card-img-top" alt="..." />
+</ng-template>
+
+<div class="card-body">
+  <h5 class="card-title">{{ Question?.name }}</h5>
+  <p class="card-text">{{ Question?.statement }}</p>
+</div>

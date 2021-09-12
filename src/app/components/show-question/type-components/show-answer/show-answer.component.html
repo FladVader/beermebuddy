@@ -1,0 +1,25 @@
+<div class="answer-div mx-auto">
+  <div class="modal fade" id="answerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <img *ngIf="Question?.img2;else defaultImage" [src]="sanitizeImageUrl(Question!.img2)" class="card-img-top"
+            alt="..." />
+            <ng-template #defaultImage>
+              <img *ngIf="!Question?.img2 && randomImg" [src]="randomImg"  class="card-img-top" alt="..." />
+            </ng-template>
+          <div class="card-body">
+            <p class="card-text">{{ Question?.answer }}</p>
+          </div>
+        </div>
+        <div class="btn-div mx-auto d-flex aligns-items-center justify-content-center">
+          <button (click)="nextQuestion()" type="button" class="btn btn-secondary btn-lg bmb-btn"
+            data-bs-dismiss="modal">
+            Okej, Boomer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

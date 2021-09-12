@@ -1,0 +1,71 @@
+<!-- ADD  RANDOM IMAGE MODAL -->
+
+<div class="answer-div mx-auto">
+  <div class="modal fade" id="previewImageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <img *ngIf="newImg" [src]="sanitizeImageUrl(newImg.url)" class="card-img-top" alt="..." />
+        </div>
+        <div class="modal-footer">
+          <button (click)="submitImg()" type="submit" class="btn btn-success" data-bs-dismiss="modal">Spara</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nej förresten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD QUESTION MODAL -->
+
+<div class="answer-div mx-auto">
+  <div class="modal fade" id="previewQuestionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="question-tab" data-bs-toggle="tab" href="#question" role="tab"
+                aria-controls="home" aria-selected="true">Fråga</a>
+            </li>
+            <li *ngIf="newQuestion?.answer" class="nav-item" role="presentation">
+              <a class="nav-link" id="answer-tab" data-bs-toggle="tab" href="#answer" role="tab" aria-controls="profile"
+                aria-selected="false">Svar</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+
+<!-- QUESTION CONTENT -->
+
+            <div class="tab-pane fade show active" id="question" role="tabpanel" aria-labelledby="home-tab">
+              <img *ngIf="newQuestion?.img1" [src]="sanitizeImageUrl(newQuestion!.img1)" class="card-img-top"
+                alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">{{ newQuestion?.name }}</h5>
+                <p class="card-text">{{ newQuestion?.statement }}</p>
+              </div>
+            </div>
+
+<!-- ANSWER CONTENT -->
+
+            <div class="tab-pane fade" id="answer" role="tabpanel" aria-labelledby="profile-tab">
+              <img *ngIf="newQuestion?.img2" [src]="sanitizeImageUrl(newQuestion!.img2)" class="card-img-top"
+                alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Svar:</h5>
+                <p class="card-text">{{ newQuestion?.answer }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" (click)="submitQuestion()" class="btn btn-success" data-bs-dismiss="modal">Spara</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nej förresten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
