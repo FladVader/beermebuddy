@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
 import { Question } from 'src/app/interfaces/question';
@@ -15,6 +15,7 @@ export class PreviewAddComponent implements OnInit {
   @Input() newImg!: RandomImg;
   @Input() newQuestion!: Question;
   @Input() questionForm!: FormGroup [];
+  @Output() previewed = new EventEmitter<string>();
   randoImgArray: RandomImg[] = [];
   randomIMG!: RandomImg;
 
@@ -31,8 +32,13 @@ export class PreviewAddComponent implements OnInit {
     this.dataService.postRandomImage(this.newImg).subscribe(data => {
       for(var form of this.questionForm){
         form.reset()
+
         };
+
     });
+
+    this.previewed.emit();
+
   }
 
   submitQuestion(): void {
@@ -47,6 +53,9 @@ export class PreviewAddComponent implements OnInit {
       console.log(data)
       alert("Fråga tillagd")
     })
+
+    this.previewed.emit();
+
   }
 
 
@@ -62,6 +71,7 @@ export class PreviewAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRandomImages()
+
   }
 
 

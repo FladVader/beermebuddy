@@ -100,24 +100,28 @@ export class FormsComponent implements OnInit {
 
 
     this.newQuestion = this.questionForm.value;
+
   }
 
   onSubmitImage(): void {
     this.newImg = this.imageForm.value;
   }
 
-  // checkType(type: number): boolean {
+  resetSelectedCategory(): void {
+    this.selectedCategory = {
+      id: 0,
+      name: 'Välj en kategori',
+      simple: true,
+    };
 
-  //   if(![5,0])includes(type)
+  }
 
-  //   return
-  // }
 
   ngOnInit(): void {
 
     this.selectedCategory = {
       id: 0,
-      name: '',
+      name: 'Välj en kategori',
       simple: true,
     };
   }

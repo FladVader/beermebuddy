@@ -17,13 +17,8 @@ export class DataServiceService {
 
   constructor(private http: HttpClient) { }
 
-  configUrl = 'http://localhost:3000/';
+  configUrl = 'https://bmb-backend.herokuapp.com/';
 
-  getNever(): Observable<NeverHave[]> {
-    var data  = this.http.get<NeverHave[]>(this.configUrl + "never");
-
-    return data;
-  };
 
   getAllQuestions(): Observable<any> {
     var data = this.http.get<any[]>(this.configUrl);
