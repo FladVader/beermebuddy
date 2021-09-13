@@ -107,6 +107,15 @@ export class FormsComponent implements OnInit {
     this.newImg = this.imageForm.value;
   }
 
+  resetSelectedCategory(): void {
+    this.selectedCategory = {
+      id: 0,
+      name: 'Välj en kategori',
+      simple: true,
+    };
+
+  }
+
 
   ngOnInit(): void {
 

@@ -2,8 +2,9 @@
   <div class="row" style="padding-top: 3em;">
     <div class="col-lg-3 col-10 mx-auto">
       <div class="card" style="padding:1em;">
-        <select [(ngModel)]="selectedCategory" id="select-category" class="form-select form-select-md dropdown-menu-right"
-          (change)="selectChangeHandler($event)" aria-label="Default select example">
+        <select [(ngModel)]="selectedCategory" id="select-category"
+          class="form-select form-select-md dropdown-menu-right" (change)="selectChangeHandler($event)"
+          aria-label="Default select example">
           <option disabled selected>{{selectedCategory.name}}</option>
           <option *ngFor="let type of types" [ngValue]="type">{{type.name}}</option>
 
@@ -38,15 +39,15 @@
           </div>
           <div class="mb-3">
             <label for="newImg1" class="form-label">Bild-URL #1</label>
-            <input class="form-control" id="newImg1"  type="text" formControlName="img1"
+            <input class="form-control" id="newImg1" type="text" formControlName="img1"
               placeholder="https://www.förstabildadressen.com">
           </div>
 
           <div>
             <div class="mb-3">
               <label for="newAnswer" class="form-label" class="form-label">Svar:</label>
-              <input class="form-control" id="newAnswer" required type="text"
-                formControlName="answer" placeholder="Skriv svaret här...">
+              <input class="form-control" id="newAnswer" required type="text" formControlName="answer"
+                placeholder="Skriv svaret här...">
             </div>
             <div class="mb-3">
               <label for="newImg2" class="form-label">Bild-URL #2</label>
@@ -73,7 +74,7 @@
           </div>
           <div class="mb-3">
             <label for="newImg1" class="form-label">Bild-URL: (om du vill ha en specifik bild)</label>
-            <input class="form-control" id="newImg1"  type="text" formControlName="img1"
+            <input class="form-control" id="newImg1" type="text" formControlName="img1"
               placeholder="https://www.förstabildadressen.com">
           </div>
           <div class="text-center btn-div">
@@ -86,5 +87,5 @@
   </div>
 </div>
 
-<app-preview-add [newImg]="newImg" [newQuestion]="newQuestion" [questionForm]="[questionForm, imageForm]">
+<app-preview-add [newImg]="newImg" [newQuestion]="newQuestion" [questionForm]="[questionForm, imageForm]" (previewed)="resetSelectedCategory()">
 </app-preview-add>
