@@ -9,7 +9,7 @@
             <ng-template #defaultImage>
               <img *ngIf="!Question?.img2 && randomImg" [src]="randomImg"  class="card-img-top" alt="..." />
             </ng-template>
-          <div class="card-body">
+          <div class="card-body" id="answer-body">
             <p class="card-text">{{ Question?.answer }}</p>
           </div>
         <div class="btn-div mx-auto d-flex aligns-items-center justify-content-center">
