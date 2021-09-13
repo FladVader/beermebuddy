@@ -75,7 +75,9 @@ export class ShowQuestionComponent implements OnInit {
         }
 
     } else {
+      alert("Där var det slut, hörru")
       this.index = 0;
+      window.location.reload();
     }
 
   }
