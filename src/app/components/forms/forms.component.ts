@@ -96,9 +96,6 @@ export class FormsComponent implements OnInit {
   onSubmit(): void {
     // console.log("submit")
     console.log(this.questionForm.value);
-    // var newQuestion: Question;
-
-
     this.newQuestion = this.questionForm.value;
 
   }
