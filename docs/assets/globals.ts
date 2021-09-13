@@ -35,4 +35,16 @@ export class GlobalConstants {
       url: "https://pbs.twimg.com/media/BN5JbelCMAAHJpZ.jpg"
     }
   ];
-}
+
+  public static btnName: any [] = [
+    {
+      name: "Gasa, Britt-Marie!"
+    },
+    {
+      name: "Kör bah kör"
+    },
+    {
+      name: "Skål mina bekanta!"
+    }
+  ];
+};

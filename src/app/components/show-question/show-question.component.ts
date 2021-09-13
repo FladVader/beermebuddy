@@ -5,6 +5,7 @@ import { Question } from 'src/app/interfaces/question';
 import { SafeUrl } from '@angular/platform-browser';
 import { RandomImg } from 'src/app/interfaces/randomImg';
 import { FunctionsService } from 'src/app/services/functions.service';
+import { GlobalConstants } from 'dist/bmb-front/assets/globals';
 
 @Component({
   selector: 'app-show-question',
@@ -16,6 +17,7 @@ export class ShowQuestionComponent implements OnInit {
   questionsArray: any[] = [];
   currentQuestion!: Question;
   index = 0;
+  btnName!: string;
 
   currentImage!: SafeUrl;
   randoImgArray: RandomImg[] = [];
@@ -74,6 +76,8 @@ export class ShowQuestionComponent implements OnInit {
         this.getNewRandomImage();
         }
 
+        this.btnName = "Gasa, Britt-Marie!"
+
     } else {
 
       this.index = 0;
@@ -94,6 +98,7 @@ export class ShowQuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.btnName = "Nu kör vi"
     this.getAll();
 
   }
