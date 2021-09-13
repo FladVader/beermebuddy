@@ -34,8 +34,8 @@
 
           <div *ngIf="(selectedCategory.id != 4 && selectedCategory.id != 5 )" class="mb-3">
             <label for="newStatement" class="form-label" class="form-label">Fråga:</label>
-            <input class="form-control" id="newStatement" required type="text" formControlName="statement"
-              placeholder="Skriv din fråga här...">
+            <textarea class="form-control" id="newStatement" required type="text" formControlName="statement"
+              placeholder="Skriv din fråga här..."></textarea>
           </div>
           <div class="mb-3">
             <label for="newImg1" class="form-label">Bild-URL #1</label>
@@ -46,8 +46,8 @@
           <div>
             <div class="mb-3">
               <label for="newAnswer" class="form-label" class="form-label">Svar:</label>
-              <input class="form-control" id="newAnswer" required type="text" formControlName="answer"
-                placeholder="Skriv svaret här...">
+              <textarea class="form-control" id="newAnswer" required type="text" formControlName="answer"
+                placeholder="Skriv svaret här..."></textarea>
             </div>
             <div class="mb-3">
               <label for="newImg2" class="form-label">Bild-URL #2</label>
@@ -68,9 +68,9 @@
           <input type="hidden" formControlName="name" [(ngModel)]="selectedCategory.name">
 
           <div class="mb-3">
-            <label for="newStatement" class="form-label" class="form-label">Fråga:</label>
-            <input class="form-control" id="newStatement" required type="text" formControlName="statement"
-              placeholder="Skriv din fråga här...">
+            <label for="newStatement" class="form-label" class="form-label">{{selectedCategory.name}}...</label>
+            <textarea class="form-control" id="newStatement" required type="text" formControlName="statement"
+              placeholder="Skriv din fråga här..."></textarea>
           </div>
           <div class="mb-3">
             <label for="newImg1" class="form-label">Bild-URL: (om du vill ha en specifik bild)</label>
