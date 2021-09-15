@@ -15,9 +15,9 @@
                 <form *ngIf="selectedCategory.id == 7 " [formGroup]="btnForm" (ngSubmit)="onSubmitBtnName()">
                   <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
                   <div class="mb-3">
-                    <label for="newBtnName" class="form-label">Ny asrolig bild:</label>
+                    <label for="newBtnName" class="form-label">Vad ska knappen säga?</label>
                     <textarea class="form-control" id="newBtnName" required type="text" formControlName="name"
-                      placeholder="T.ex. 'Nästa', eller 'Ny fråga'"></textarea>
+                      placeholder="T.ex. 'Nästa', 'Ny fråga' eller något lite roligre kanske..."></textarea>
                   </div>
 
                   <div class="text-center btn-div">
