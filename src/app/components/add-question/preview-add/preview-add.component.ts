@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
+import arrayShuffle from 'array-shuffle';
 import { BtnName } from 'src/app/interfaces/btnName';
 import { Question } from 'src/app/interfaces/question';
 import { RandomImg } from 'src/app/interfaces/randomImg';
@@ -20,6 +21,8 @@ export class PreviewAddComponent implements OnInit {
   @Output() previewed = new EventEmitter<string>();
   randoImgArray: RandomImg[] = [];
   randomIMG!: RandomImg;
+  firstRandomImage!: SafeUrl;
+  secondRandomImage!: SafeUrl;
 
   constructor(private functionService: FunctionsService, private dataService: DataServiceService) {}
 
@@ -69,12 +72,15 @@ export class PreviewAddComponent implements OnInit {
   private getRandomImages() {
     this.dataService.getRandomImages().subscribe((data) => {
       this.randoImgArray = data as RandomImg[];
+      this.randoImgArray = arrayShuffle(this.randoImgArray)
+      this.getNewRandomImage();
     });
-
-
   }
 
-
+  private getNewRandomImage() {
+    this.firstRandomImage = this.functionService.getRandoImg(this.randoImgArray);
+    this.secondRandomImage = this.functionService.getRandoImg(this.randoImgArray);
+  }
 
   ngOnInit(): void {
     this.getRandomImages()

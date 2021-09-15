@@ -17,6 +17,11 @@ html, body {
   font-size: 0.8em;
 }
 
+.navbar-brand {
+
+  font-size: 0.9em;
+}
+
 .content-div {
 
   max-height: 80vh;

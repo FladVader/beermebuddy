@@ -55,7 +55,6 @@ export class ShowQuestionComponent implements OnInit {
 
   private getButtonNames() {
      this.dataService.getButtonNames().subscribe(data => {
-
       this.btnNames = arrayShuffle(data as BtnName[]);
      })
   }
@@ -104,12 +103,15 @@ export class ShowQuestionComponent implements OnInit {
     }
 
     if(this.btnNames[this.btnIndex]) {
+      if(!this.currentQuestion.answer){
       this.btnName = this.btnNames[this.btnIndex]
       this.btnIndex++;
+      }
     }
     else{
       this.btnIndex = 0;
     }
+
 
   }
 
