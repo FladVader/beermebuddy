@@ -5,7 +5,9 @@ import { Question } from 'src/app/interfaces/question';
 import { SafeUrl } from '@angular/platform-browser';
 import { RandomImg } from 'src/app/interfaces/randomImg';
 import { FunctionsService } from 'src/app/services/functions.service';
-import { GlobalConstants } from 'dist/bmb-front/assets/globals';
+
+import { BtnName } from 'src/app/interfaces/btnName';
+import { GlobalConstants } from 'src/assets/globals';
 
 @Component({
   selector: 'app-show-question',
@@ -16,11 +18,15 @@ import { GlobalConstants } from 'dist/bmb-front/assets/globals';
 export class ShowQuestionComponent implements OnInit {
   questionsArray: any[] = [];
   currentQuestion!: Question;
+  btnNames: BtnName[] = [];
   index = 0;
-  btnName!: string;
-
+  btnIndex = 0;
+  btnName: BtnName = {id: 0,
+  name: 'Nu åker vi!'};
+  globalAny: any = GlobalConstants
   currentImage!: SafeUrl;
   randoImgArray: RandomImg[] = [];
+
 
   constructor(
     private dataService: DataServiceService,
@@ -28,9 +34,10 @@ export class ShowQuestionComponent implements OnInit {
 
   ) {}
 
-  getAll(): void {
+ private getAll(): void {
     this.getAllQuestions();
     this.getRandomImages();
+    this.getButtonNames();
   }
 
   private getRandomImages() {
@@ -38,11 +45,22 @@ export class ShowQuestionComponent implements OnInit {
       this.randoImgArray = data as RandomImg[];
       this.randoImgArray = arrayShuffle(this.randoImgArray)
 
-
     });
 
-
   }
+
+  private getNewRandomImage() {
+    this.currentImage = this.functionService.getRandoImg(this.randoImgArray);
+  }
+
+  private getButtonNames() {
+     this.dataService.getButtonNames().subscribe(data => {
+
+      this.btnNames = arrayShuffle(data as BtnName[]);
+     })
+  }
+
+
 
   private getAllQuestions() {
     this.dataService.getAllQuestions().subscribe((data) => {
@@ -69,6 +87,7 @@ export class ShowQuestionComponent implements OnInit {
   }
 
   next(): void {
+
     if (this.questionsArray[this.index]) {
       this.currentQuestion = this.questionsArray[this.index];
       this.index++;
@@ -76,12 +95,20 @@ export class ShowQuestionComponent implements OnInit {
         this.getNewRandomImage();
         }
 
-        this.btnName = "Gasa, Britt-Marie!"
+
 
     } else {
 
       this.index = 0;
 
+    }
+
+    if(this.btnNames[this.btnIndex]) {
+      this.btnName = this.btnNames[this.btnIndex]
+      this.btnIndex++;
+    }
+    else{
+      this.btnIndex = 0;
     }
 
   }
@@ -93,13 +120,13 @@ export class ShowQuestionComponent implements OnInit {
       }
     }
 
-  private getNewRandomImage() {
-    this.currentImage = this.functionService.getRandoImg(this.randoImgArray);
-  }
+
+
 
   ngOnInit(): void {
-    this.btnName = "Nu kör vi"
+    this.btnName.name = "Nu kör vi"
     this.getAll();
+
 
   }
 

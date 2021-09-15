@@ -17,6 +17,28 @@
   </div>
 </div>
 
+
+<!-- ADD BUTTON NAME MODAL -->
+<div class="answer-div mx-auto">
+  <div class="modal fade" id="previewBtnNameModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <button  type="button"
+          class="btn btn-secondary btn-lg bmb-btn" disabled>{{newBtnName?.name}}</button>
+        </div>
+        <div class="modal-footer">
+          <button (click)="submitBtnName()" type="submit" class="btn btn-success" data-bs-dismiss="modal">Spara</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nej förresten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- ADD QUESTION MODAL -->
 
 <div class="answer-div mx-auto">

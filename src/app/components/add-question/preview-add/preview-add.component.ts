@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
+import { BtnName } from 'src/app/interfaces/btnName';
 import { Question } from 'src/app/interfaces/question';
 import { RandomImg } from 'src/app/interfaces/randomImg';
 import { DataServiceService } from 'src/app/services/data-service.service';
@@ -15,6 +16,7 @@ export class PreviewAddComponent implements OnInit {
   @Input() newImg!: RandomImg;
   @Input() newQuestion!: Question;
   @Input() questionForm!: FormGroup [];
+  @Input() newBtnName!: BtnName;
   @Output() previewed = new EventEmitter<string>();
   randoImgArray: RandomImg[] = [];
   randomIMG!: RandomImg;
@@ -27,18 +29,23 @@ export class PreviewAddComponent implements OnInit {
 
 
   submitImg():void {
-
-
     this.dataService.postRandomImage(this.newImg).subscribe(data => {
       for(var form of this.questionForm){
         form.reset()
-
         };
-
     });
 
     this.previewed.emit();
+  }
 
+  submitBtnName():void {
+    this.dataService.postNewButtonName(this.newBtnName).subscribe(data => {
+      for(var form of this.questionForm){
+        form.reset()
+        };
+    });
+
+    this.previewed.emit();
   }
 
   submitQuestion(): void {

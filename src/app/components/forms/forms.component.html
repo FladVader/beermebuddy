@@ -10,6 +10,23 @@
 
         </select>
 
+                <!-- NEW BUTTON NAME  -->
+
+                <form *ngIf="selectedCategory.id == 7 " [formGroup]="btnForm" (ngSubmit)="onSubmitBtnName()">
+                  <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
+                  <div class="mb-3">
+                    <label for="newBtnName" class="form-label">Ny asrolig bild:</label>
+                    <textarea class="form-control" id="newBtnName" required type="text" formControlName="name"
+                      placeholder="T.ex. 'Nästa', eller 'Ny fråga'"></textarea>
+                  </div>
+
+                  <div class="text-center btn-div">
+                    <button type="submit" class="btn btn-success bmb-btn" [disabled]="!btnForm.valid" data-bs-toggle="modal"
+                      data-bs-target="#previewBtnNameModal">Förhandsgranska
+                    </button>
+                  </div>
+                </form>
+
         <!-- NEW RANDOM IMG -->
 
         <form *ngIf="selectedCategory.id == 5 " [formGroup]="imageForm" (ngSubmit)="onSubmitImage()">
@@ -62,7 +79,7 @@
         </form>
 
         <!-- NEW QUESTION W/o ANSWER -->
-        <form *ngIf="selectedCategory.simple && selectedCategory.id !=5 && selectedCategory.id !=0"
+        <form *ngIf="selectedCategory.simple && selectedCategory.id ==1 || selectedCategory.id ==2"
           [formGroup]="questionForm" (ngSubmit)="onSubmit()">
           <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
           <input type="hidden" formControlName="name" [(ngModel)]="selectedCategory.name">
@@ -87,5 +104,5 @@
   </div>
 </div>
 
-<app-preview-add [newImg]="newImg" [newQuestion]="newQuestion" [questionForm]="[questionForm, imageForm]" (previewed)="resetSelectedCategory()">
+<app-preview-add [newImg]="newImg" [newBtnName]="newBtnName" [newQuestion]="newQuestion" [questionForm]="[questionForm, imageForm, btnForm]" (previewed)="resetSelectedCategory()">
 </app-preview-add>

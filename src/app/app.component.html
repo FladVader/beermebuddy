@@ -2,6 +2,16 @@
 
 <div class="max-vh-100">
   <router-outlet></router-outlet>
+  <ng-http-loader
+  [backdrop]="true"
+  [backgroundColor]="'#FE9A2E'"
+  [debounceDelay]="100"
+  [extraDuration]="300"
+  [minDuration]="300"
+
+  [spinner]="spinnerStyle.skCubeGrid"
+  >
+</ng-http-loader>
 </div>
 
 
