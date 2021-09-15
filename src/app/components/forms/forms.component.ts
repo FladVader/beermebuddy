@@ -26,6 +26,7 @@ export class FormsComponent implements OnInit {
   selectedSimple!: boolean;
   selectedCategory!: Category
 
+
   @Input() required!: boolean;
   @Input() requiredImg!: boolean;
   @Input() requiredAnswer!: boolean;

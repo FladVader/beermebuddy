@@ -9,4 +9,5 @@ import { Spinkit } from 'ng-http-loader';
 export class AppComponent {
   title = 'BeerMeBuddy - Be the idiot.';
   spinnerStyle = Spinkit;
+
 }

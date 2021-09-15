@@ -5,7 +5,8 @@ export class GlobalConstants {
   public static neverHaveIMG: string = 'assets/images/default-neverhave.gif';
   public static mostLikelyIMG: string = 'assets/images/default-mostlikely.png';
   public static welcomeIMG: string = 'assets/images/default-welcome.png';
-
+  public static title: string = 'BeerMeBuddy';
+  public static tag: string = '- Be the idiot.'
 
   public static randoIMG: RandomImg[] = [
     {
