@@ -13,7 +13,7 @@ import { GlobalConstants } from 'src/assets/globals';
   selector: 'app-show-question',
   templateUrl: './show-question.component.html',
   styleUrls: ['./show-question.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShowQuestionComponent implements OnInit {
   questionsArray: any[] = [];
@@ -21,20 +21,17 @@ export class ShowQuestionComponent implements OnInit {
   btnNames: BtnName[] = [];
   index = 0;
   btnIndex = 0;
-  btnName: BtnName = {id: 0,
-  name: 'Nu åker vi!'};
-  globalAny: any = GlobalConstants
+  btnName: BtnName = { id: 0, name: 'Nu åker vi!' };
+  globalAny: any = GlobalConstants;
   currentImage!: SafeUrl;
   randoImgArray: RandomImg[] = [];
 
-
   constructor(
     private dataService: DataServiceService,
-    private functionService: FunctionsService,
-
+    private functionService: FunctionsService
   ) {}
 
- private getAll(): void {
+  private getAll(): void {
     this.getAllQuestions();
     this.getRandomImages();
     this.getButtonNames();
@@ -43,10 +40,8 @@ export class ShowQuestionComponent implements OnInit {
   private getRandomImages() {
     this.dataService.getRandomImages().subscribe((data) => {
       this.randoImgArray = data as RandomImg[];
-      this.randoImgArray = arrayShuffle(this.randoImgArray)
-
+      this.randoImgArray = arrayShuffle(this.randoImgArray);
     });
-
   }
 
   private getNewRandomImage() {
@@ -54,12 +49,10 @@ export class ShowQuestionComponent implements OnInit {
   }
 
   private getButtonNames() {
-     this.dataService.getButtonNames().subscribe(data => {
+    this.dataService.getButtonNames().subscribe((data) => {
       this.btnNames = arrayShuffle(data as BtnName[]);
-     })
+    });
   }
-
-
 
   private getAllQuestions() {
     this.dataService.getAllQuestions().subscribe((data) => {
@@ -80,57 +73,39 @@ export class ShowQuestionComponent implements OnInit {
           }
         }
       }
-
       console.log(this.questionsArray.length);
     });
   }
 
   next(): void {
-
     if (this.questionsArray[this.index]) {
       this.currentQuestion = this.questionsArray[this.index];
       this.index++;
-        if(!this.currentQuestion.img1){
+      if (!this.currentQuestion.img1) {
         this.getNewRandomImage();
-        }
-
-
-
-    } else {
-
-      this.index = 0;
-
-    }
-
-    if(this.btnNames[this.btnIndex]) {
-      if(!this.currentQuestion.answer){
-      this.btnName = this.btnNames[this.btnIndex]
-      this.btnIndex++;
       }
+    } else {
+      this.index = 0;
     }
-    else{
+
+    if (this.btnNames[this.btnIndex]) {
+      if (!this.currentQuestion.answer) {
+        this.btnName = this.btnNames[this.btnIndex];
+        this.btnIndex++;
+      }
+    } else {
       this.btnIndex = 0;
     }
-
-
   }
 
   nextRandImg(): void {
-
-    if(!this.currentQuestion.img2){
+    if (!this.currentQuestion.img2) {
       this.getNewRandomImage();
-      }
     }
-
-
-
-
-  ngOnInit(): void {
-    this.btnName.name = "Nu kör vi"
-    this.getAll();
-
-
   }
 
-
+  ngOnInit(): void {
+    this.btnName.name = 'Nu kör vi';
+    this.getAll();
+  }
 }

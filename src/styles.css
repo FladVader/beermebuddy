@@ -2,6 +2,8 @@
 html,
 body {
   background-color: orange;
+  background-image: url('./assets/images/beer-bubbles-l.jpg');
+  background-size:cover;
   min-width: 100vw;
   overflow-x: hidden;
   min-height: 100vh;
@@ -80,4 +82,13 @@ body {
 
 .btn-success {
   background-color: #2bb92b;
+}
+
+
+@media (min-width: 62em){
+
+  body {
+
+    background-image: none;
+  }
 }
