@@ -40,6 +40,7 @@ export class FunctionsService {
       var shuffled = arrayShuffle(array);
       shuffledArrays.push(shuffled);
     }
+    console.log(shuffledArrays)
     return shuffledArrays;
   }
 }

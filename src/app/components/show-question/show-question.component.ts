@@ -40,8 +40,12 @@ export class ShowQuestionComponent implements OnInit {
   private getRandomImages() {
     this.dataService.getRandomImages().subscribe((data) => {
       this.randoImgArray = data as RandomImg[];
-      this.randoImgArray = arrayShuffle(this.randoImgArray);
+      console.log(this.randoImgArray)
+
+
     });
+
+    this.randoImgArray = arrayShuffle(this.randoImgArray);
   }
 
   private getNewRandomImage() {
@@ -50,8 +54,10 @@ export class ShowQuestionComponent implements OnInit {
 
   private getButtonNames() {
     this.dataService.getButtonNames().subscribe((data) => {
-      this.btnNames = arrayShuffle(data as BtnName[]);
+      this.btnNames = data as BtnName[];
     });
+
+    arrayShuffle(this.btnNames)
   }
 
   private getAllQuestions() {

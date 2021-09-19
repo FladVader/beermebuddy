@@ -79,7 +79,7 @@
         </form>
 
         <!-- NEW QUESTION W/o ANSWER -->
-        <form *ngIf="selectedCategory.simple && selectedCategory.id ==1 || selectedCategory.id ==2"
+        <form *ngIf="selectedCategory.simple && (selectedCategory.id !=7 && selectedCategory.id !=5 && selectedCategory.id !=0)"
           [formGroup]="questionForm" (ngSubmit)="onSubmit()">
           <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
           <input type="hidden" formControlName="name" [(ngModel)]="selectedCategory.name">
@@ -87,7 +87,7 @@
           <div class="mb-3">
             <label for="newStatement" class="form-label" class="form-label">{{selectedCategory.name}}...</label>
             <textarea class="form-control" id="newStatement" required type="text" formControlName="statement"
-              placeholder="Skriv din fråga här..."></textarea>
+              placeholder="Skriv ditt påstående här..."></textarea>
           </div>
           <div class="mb-3">
             <label for="newImg1" class="form-label">Bild-URL: (om du vill ha en specifik bild)</label>
