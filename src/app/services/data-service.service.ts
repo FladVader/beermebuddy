@@ -15,6 +15,7 @@ export class DataServiceService {
   constructor(private http: HttpClient) {}
 
   configUrl = 'https://bmb-backend.herokuapp.com/';
+  // configUrl = 'http://localhost:3000/';
 
   getAllQuestions(): Observable<any> {
     var data = this.http.get<any[]>(this.configUrl);
