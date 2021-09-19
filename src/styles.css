@@ -1,29 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-
-    background-color: orange;
-    min-width: 100vw; overflow-x: hidden;
-    min-height: 100vh;
-
+html,
+body {
+  background-color: orange;
+  min-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .navbar {
   max-height: 10vh;
-
 }
 
 .navbar-brand i {
-
   font-size: 0.8em;
 }
 
 .navbar-brand {
-
   font-size: 0.9em;
 }
 
 .content-div {
-
   max-height: 80vh;
   min-height: 80vh;
 }
@@ -33,19 +31,27 @@ html, body {
     border: 5px solid pink;
 } */
 
-
 .btn-div {
-
-    max-height: 10vh;
-    min-height: 10vh;
+  max-height: 10vh;
+  min-height: 10vh;
 }
 
 .bmb-btn {
-
-    width: 15em;
+  width: 15em;
+  transition: all 0.08s linear;
+  position: relative;
+  outline: medium none;
+  -moz-outline-style: none;
+  outline-style: none;
+  border: 0px;
+  color: white;
+  box-shadow: 0 0 0 1px #5cb85c inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 #4cae4c, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #2bb92b;
 }
 
-.card-img-top  {
+.card-img-top {
   width: 100%;
   max-height: 50vh;
   min-height: 50vh;
@@ -53,24 +59,25 @@ html, body {
 }
 
 .card-body {
-
   width: 100%;
   max-height: 20vh;
   min-height: 20vh;
   overflow-y: auto;
-
 }
 
 .card {
   border-radius: 1em;
-
 }
 
 .card-text {
-
   font-size: 1.2em;
 }
 
+.bmb-btn:hover {
+  background-color: green;
+  color: white;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.btn-success {
+  background-color: #2bb92b;
+}

@@ -14,9 +14,9 @@
 
       <div class=" btn-div d-flex aligns-items-center justify-content-center">
         <button *ngIf="!currentQuestion?.answer; else answerBtn" id="btn-nxt" type="button"
-          class="btn btn-secondary btn-lg bmb-btn" (click)="next()">{{btnName.name}}</button>
+          class="btn btn-lg bmb-btn " (click)="next()">{{btnName.name}}</button>
         <ng-template #answerBtn>
-          <button id="btn-answ" type="button" class="btn btn-secondary btn-lg bmb-btn" data-bs-toggle="modal"
+          <button id="btn-answ" type="button" class="btn btn-lg bmb-btn" data-bs-toggle="modal"
             data-bs-target="#answerModal" (click)="nextRandImg()">Visa Svar</button>
         </ng-template>
       </div>
