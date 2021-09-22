@@ -1,9 +1,12 @@
+import { BtnName } from 'src/app/interfaces/btnName';
 import { RandomImg } from 'src/app/interfaces/randomImg';
 
 export class GlobalConstants {
   public static neverHaveIMG: string = 'assets/images/default-neverhave.gif';
   public static mostLikelyIMG: string = 'assets/images/default-mostlikely.png';
   public static welcomeIMG: string = 'assets/images/default-welcome.png';
+  public static title: string = 'BeerMeBuddy';
+  public static tag: string = '- Be the idiot.'
 
   public static randoIMG: RandomImg[] = [
     {
@@ -28,11 +31,13 @@ export class GlobalConstants {
     },
     {
       id: 6,
-      url: "https://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/wtf-people-of-walmart.jpg"
+      url: 'https://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/wtf-people-of-walmart.jpg',
     },
     {
       id: 7,
-      url: "https://pbs.twimg.com/media/BN5JbelCMAAHJpZ.jpg"
-    }
+      url: 'https://pbs.twimg.com/media/BN5JbelCMAAHJpZ.jpg',
+    },
   ];
+
+
 }

@@ -16,6 +16,8 @@ import { NavAddComponent } from './components/navbar/navbar-specific/nav-add/nav
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreviewAddComponent } from './components/add-question/preview-add/preview-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule
 

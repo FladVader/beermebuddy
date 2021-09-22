@@ -11,6 +11,7 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { RandomImg } from 'src/app/interfaces/randomImg';
 import { SelectedType } from 'src/app/interfaces/selectedType';
+import { BtnName } from 'src/app/interfaces/btnName';
 
 @Component({
   selector: 'app-forms',
@@ -25,6 +26,7 @@ export class FormsComponent implements OnInit {
   selectedSimple!: boolean;
   selectedCategory!: Category
 
+
   @Input() required!: boolean;
   @Input() requiredImg!: boolean;
   @Input() requiredAnswer!: boolean;
@@ -33,6 +35,7 @@ export class FormsComponent implements OnInit {
   @Input() simple!: boolean;
   newImg!: RandomImg;
   newQuestion!: Question;
+  newBtnName!: BtnName;
 
   questionForm = new FormGroup({
     statement: new FormControl(),
@@ -53,6 +56,12 @@ export class FormsComponent implements OnInit {
   imageForm = new FormGroup({
     url: new FormControl(),
     type: new FormControl(),
+  });
+
+  btnForm = new FormGroup({
+    name: new FormControl(),
+    type: new FormControl(),
+
   });
 
   constructor(
@@ -94,7 +103,6 @@ export class FormsComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // console.log("submit")
     console.log(this.questionForm.value);
     this.newQuestion = this.questionForm.value;
 
@@ -102,6 +110,10 @@ export class FormsComponent implements OnInit {
 
   onSubmitImage(): void {
     this.newImg = this.imageForm.value;
+  }
+
+  onSubmitBtnName(): void {
+    this.newBtnName = this.btnForm.value;
   }
 
   resetSelectedCategory(): void {

@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import arrayShuffle from 'array-shuffle';
-import { GlobalConstants } from 'src/assets/globals';
 import { RandomImg } from '../interfaces/randomImg';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FunctionsService {
-  randoImgArray = GlobalConstants.randoIMG;
   currentImage!: SafeUrl;
   next: number = 0;
   imgIndex = 1;
@@ -20,7 +18,7 @@ export class FunctionsService {
   }
 
   getRandoImg(imgArray: RandomImg[]) {
-    var max = imgArray.length;
+
     // this.currentImage = this.sanitizeImageUrl(
     //   imgArray[Math.floor(Math.random() * max)].url
     // );
@@ -33,7 +31,6 @@ export class FunctionsService {
       this.currentImage = this.sanitizeImageUrl(imgArray[this.imgIndex].url)
     }
 
-    console.log(this.imgIndex)
     return this.currentImage;
   }
 

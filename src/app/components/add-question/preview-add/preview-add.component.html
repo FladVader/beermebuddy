@@ -17,6 +17,29 @@
   </div>
 </div>
 
+
+<!-- ADD BUTTON NAME MODAL -->
+<div class="answer-div mx-auto">
+  <div class="modal fade" id="previewBtnNameModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <h5 class="card-title">Såhär kommer knappen se ut:</h5>
+          <button  type="button"
+          class="btn btn-secondary btn-lg bmb-btn" disabled>{{newBtnName?.name}}</button>
+        </div>
+        <div class="modal-footer">
+          <button (click)="submitBtnName()" type="submit" class="btn btn-success" data-bs-dismiss="modal">Spara</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nej förresten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- ADD QUESTION MODAL -->
 
 <div class="answer-div mx-auto">
@@ -36,12 +59,15 @@
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-            <h6>Ser allt okej ut?</h6>
+            <h6 *ngIf="newQuestion?.img1 || newQuestion?.img2">Lagt till en bild som inte syns här? Då får du byta ut den, muchacho!</h6>
 
 <!-- QUESTION CONTENT -->
 
             <div class="tab-pane fade show active" id="question" role="tabpanel" aria-labelledby="home-tab">
               <img *ngIf="newQuestion?.img1" [src]="sanitizeImageUrl(newQuestion!.img1)" class="card-img-top"
+                alt="..." />
+
+                <img *ngIf="!newQuestion?.img1" [src]="firstRandomImage" class="card-img-top"
                 alt="..." />
               <div class="card-body">
                 <h5 class="card-title">{{ newQuestion?.name }}</h5>
@@ -53,6 +79,8 @@
 
             <div class="tab-pane fade" id="answer" role="tabpanel" aria-labelledby="profile-tab">
               <img *ngIf="newQuestion?.img2" [src]="sanitizeImageUrl(newQuestion!.img2)" class="card-img-top"
+                alt="..." />
+                <img *ngIf="!newQuestion?.img2" [src]="secondRandomImage" class="card-img-top"
                 alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Svar:</h5>

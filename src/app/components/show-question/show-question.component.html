@@ -1,15 +1,10 @@
 
   <app-nav-home></app-nav-home>
-
-
       <div class="content-div">
         <div class="row" style="padding-top: 3em;">
           <div class="col-lg-3 col-10 mx-auto">
-            <div class="card text-center">
+            <div class="card text-center" style="box-shadow: 2px 11px 11px -2px rgba(0,0,0,0.39);">
               <app-welcome *ngIf=!currentQuestion></app-welcome>
-              <!-- <app-never *ngIf="currentQuestion?.type == 1" [Question]="currentQuestion"></app-never>
-              <app-likely *ngIf="currentQuestion?.type == 2" [Question]="currentQuestion"></app-likely>
-              <app-idiot *ngIf="currentQuestion?.type == 3" (next)="next()" [Question]="currentQuestion"></app-idiot> -->
               <app-show-statement *ngIf="currentQuestion" [randomImg] = "currentImage" [Question]="currentQuestion"></app-show-statement>
               <app-show-answer *ngIf="currentQuestion" [randomImg] = "currentImage" [Question]="currentQuestion" (viewedAnswer)="next()"></app-show-answer>
             </div>
@@ -19,9 +14,9 @@
 
       <div class=" btn-div d-flex aligns-items-center justify-content-center">
         <button *ngIf="!currentQuestion?.answer; else answerBtn" id="btn-nxt" type="button"
-          class="btn btn-secondary btn-lg bmb-btn" (click)="next()">Nästa</button>
+          class="btn btn-lg bmb-btn " (click)="next()">{{btnName.name}}</button>
         <ng-template #answerBtn>
-          <button id="btn-answ" type="button" class="btn btn-secondary btn-lg bmb-btn" data-bs-toggle="modal"
+          <button id="btn-answ" type="button" class="btn btn-lg bmb-btn" data-bs-toggle="modal"
             data-bs-target="#answerModal" (click)="nextRandImg()">Visa Svar</button>
         </ng-template>
       </div>
