@@ -21,9 +21,6 @@ import { BtnName } from 'src/app/interfaces/btnName';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormsComponent implements OnInit {
-  selectedType!: number;
-  selectedTypeName!: String;
-  selectedSimple!: boolean;
   selectedCategory!: Category
 
 
@@ -74,6 +71,7 @@ export class FormsComponent implements OnInit {
 
     //update the ui
     console.log(this.selectedCategory);
+    this.resetForms();
 
     // switch (this.selectedCategory.simple) {
     //   case true: {
@@ -83,7 +81,7 @@ export class FormsComponent implements OnInit {
 
     //     if(this.selectedCategory.id == 5){
     //     this.required = false;
-    //     this.requiredImg = true;
+    //     this.requiredImg = true;s
     //     }else {
     //       this.required = true;
     //     }
@@ -102,25 +100,36 @@ export class FormsComponent implements OnInit {
     // }
   }
 
+  private resetForms() {
+    this.questionForm.reset();
+    this.imageForm.reset();
+    this.btnForm.reset();
+  }
+
   onSubmit(): void {
-    console.log(this.questionForm.value);
+    this.questionForm.patchValue({type: this.selectedCategory.id, name: this.selectedCategory.name})
     this.newQuestion = this.questionForm.value;
+    console.log(this.newQuestion)
 
   }
 
   onSubmitImage(): void {
+    this.imageForm.patchValue({type: this.selectedCategory.id})
     this.newImg = this.imageForm.value;
+    console.log(this.newImg)
   }
 
   onSubmitBtnName(): void {
+    this.btnForm.patchValue({type: this.selectedCategory.id})
     this.newBtnName = this.btnForm.value;
+    console.log(this.newBtnName)
   }
 
   resetSelectedCategory(): void {
     this.selectedCategory = {
       id: 0,
       name: 'Välj en kategori',
-      simple: true,
+      simple: 'N/A',
     };
 
   }
@@ -131,7 +140,7 @@ export class FormsComponent implements OnInit {
     this.selectedCategory = {
       id: 0,
       name: 'Välj en kategori',
-      simple: true,
+      simple: 'N/A',
     };
   }
 }

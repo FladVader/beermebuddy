@@ -1,4 +1,4 @@
 export interface SelectedType {
   type: number,
-  simple: boolean
+  simple: string
 }

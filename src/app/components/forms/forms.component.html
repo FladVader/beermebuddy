@@ -7,30 +7,28 @@
           aria-label="Default select example">
           <option disabled selected>{{selectedCategory.name}}</option>
           <option *ngFor="let type of types" [ngValue]="type">{{type.name}}</option>
-
         </select>
 
-                <!-- NEW BUTTON NAME  -->
+        <!-- NEW BUTTON NAME  -->
 
-                <form *ngIf="selectedCategory.id == 7 " [formGroup]="btnForm" (ngSubmit)="onSubmitBtnName()">
-                  <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
-                  <div class="mb-3">
-                    <label for="newBtnName" class="form-label">Vad ska knappen säga?</label>
-                    <textarea class="form-control" id="newBtnName" required type="text" formControlName="name"
-                      placeholder="T.ex. 'Nästa', 'Ny fråga' eller något lite roligare kanske..."></textarea>
-                  </div>
+        <form *ngIf="selectedCategory.id == 7 " [formGroup]="btnForm" (ngSubmit)="onSubmitBtnName()">
+          <div class="mb-3">
+            <label for="newBtnName" class="form-label">Vad ska knappen säga?</label>
+            <textarea class="form-control" id="newBtnName" required type="text" formControlName="name"
+              placeholder="T.ex. 'Nästa', 'Ny fråga' eller något lite roligare kanske..."></textarea>
+          </div>
 
-                  <div class="text-center btn-div">
-                    <button type="submit" class="btn btn-success bmb-btn" [disabled]="!btnForm.valid" data-bs-toggle="modal"
-                      data-bs-target="#previewBtnNameModal">Förhandsgranska
-                    </button>
-                  </div>
-                </form>
+          <div class="text-center btn-div">
+            <button type="submit" class="btn btn-success bmb-btn" [disabled]="!btnForm.valid" data-bs-toggle="modal"
+              data-bs-target="#previewBtnNameModal">Förhandsgranska
+            </button>
+          </div>
+        </form>
 
         <!-- NEW RANDOM IMG -->
 
         <form *ngIf="selectedCategory.id == 5 " [formGroup]="imageForm" (ngSubmit)="onSubmitImage()">
-          <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
+          <!-- <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id"> -->
           <div class="mb-3">
             <label for="newRandImg" class="form-label">Ny asrolig bild:</label>
             <input class="form-control" id="newRandImg" required type="text" formControlName="url"
@@ -45,11 +43,8 @@
         </form>
 
         <!-- NEW QUESTION W. ANSWER -->
-        <form *ngIf="!selectedCategory.simple" [formGroup]="questionForm" (ngSubmit)="onSubmit()">
-          <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
-          <input type="hidden" formControlName="name" [(ngModel)]="selectedCategory.name">
-
-          <div *ngIf="(selectedCategory.id != 4 && selectedCategory.id != 5 )" class="mb-3">
+        <form *ngIf="selectedCategory.simple =='no'" [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
             <label for="newStatement" class="form-label" class="form-label">Fråga:</label>
             <textarea class="form-control" id="newStatement" required type="text" formControlName="statement"
               placeholder="Skriv din fråga här..."></textarea>
@@ -79,11 +74,7 @@
         </form>
 
         <!-- NEW QUESTION W/o ANSWER -->
-        <form *ngIf="selectedCategory.simple && (selectedCategory.id !=7 && selectedCategory.id !=5 && selectedCategory.id !=0)"
-          [formGroup]="questionForm" (ngSubmit)="onSubmit()">
-          <input type="hidden" formControlName="type" [(ngModel)]="selectedCategory.id">
-          <input type="hidden" formControlName="name" [(ngModel)]="selectedCategory.name">
-
+        <form *ngIf="selectedCategory.simple == 'yes'" [formGroup]="questionForm" (ngSubmit)="onSubmit()">
           <div class="mb-3">
             <label for="newStatement" class="form-label" class="form-label">{{selectedCategory.name}}...</label>
             <textarea class="form-control" id="newStatement" required type="text" formControlName="statement"
@@ -104,5 +95,6 @@
   </div>
 </div>
 
-<app-preview-add [newImg]="newImg" [newBtnName]="newBtnName" [newQuestion]="newQuestion" [questionForm]="[questionForm, imageForm, btnForm]" (previewed)="resetSelectedCategory()">
+<app-preview-add [newImg]="newImg" [newBtnName]="newBtnName" [newQuestion]="newQuestion"
+  [questionForm]="[questionForm, imageForm, btnForm]" (previewed)="resetSelectedCategory()">
 </app-preview-add>
