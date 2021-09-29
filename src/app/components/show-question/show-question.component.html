@@ -1,8 +1,8 @@
 
   <app-nav-home></app-nav-home>
-      <div class="content-div d-flex aligns-items-center justify-content-center">
-        <div class="row  align-self-center" >
-          <div class="col-lg-3 col-10 mx-auto bmb-question-div">
+      <div class="content-div">
+        <div class="row" style="padding-top: 2em;">
+          <div class="col-lg-3 col-10 mx-auto">
             <div class="card text-center" style="box-shadow: 2px 11px 11px -2px rgba(0,0,0,0.39);">
               <app-welcome *ngIf=!currentQuestion></app-welcome>
               <app-show-statement *ngIf="currentQuestion" [randomImg] = "currentImage" [Question]="currentQuestion"></app-show-statement>
