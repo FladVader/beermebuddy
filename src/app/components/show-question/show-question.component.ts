@@ -8,6 +8,7 @@ import { FunctionsService } from 'src/app/services/functions.service';
 
 import { BtnName } from 'src/app/interfaces/btnName';
 import { GlobalConstants } from 'src/assets/globals';
+import { Rule } from 'src/app/interfaces/rule';
 
 @Component({
   selector: 'app-show-question',
@@ -21,10 +22,11 @@ export class ShowQuestionComponent implements OnInit {
   btnNames: BtnName[] = [];
   index = 0;
   btnIndex = 0;
-  btnName: BtnName = { id: 0, name: 'Nu åker vi!' };
+  btnName: BtnName = { id: 0, name: '' };
   globalAny: any = GlobalConstants;
   currentImage!: SafeUrl;
   randoImgArray: RandomImg[] = [];
+
 
   constructor(
     private dataService: DataServiceService,
@@ -41,10 +43,7 @@ export class ShowQuestionComponent implements OnInit {
     this.dataService.getRandomImages().subscribe((data) => {
       this.randoImgArray = data as RandomImg[];
       this.randoImgArray = arrayShuffle(this.randoImgArray);
-
     });
-
-
   }
 
   private getNewRandomImage() {
@@ -54,11 +53,11 @@ export class ShowQuestionComponent implements OnInit {
   private getButtonNames() {
     this.dataService.getButtonNames().subscribe((data) => {
       this.btnNames = data as BtnName[];
-      this.btnNames = arrayShuffle(this.btnNames)
+      this.btnNames = arrayShuffle(this.btnNames);
     });
-
-
   }
+
+
 
   private getAllQuestions() {
     this.dataService.getAllQuestions().subscribe((data) => {
@@ -111,7 +110,7 @@ export class ShowQuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.btnName.name = 'Nu kör vi';
+    this.btnName.name = 'Nu åker vi!';
     this.getAll();
   }
 }

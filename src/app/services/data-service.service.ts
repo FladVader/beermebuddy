@@ -7,6 +7,7 @@ import { Category } from '../interfaces/category';
 import { RandomImg } from '../interfaces/randomImg';
 import { Question } from '../interfaces/question';
 import { BtnName } from '../interfaces/btnName';
+import { Rule } from '../interfaces/rule';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +33,11 @@ export class DataServiceService {
   getRandomImages(): Observable<RandomImg[]> {
     return this.http.get<RandomImg[]>(this.configUrl + 'randomimg');
   }
+
+  getRules(): Observable<Rule[]> {
+    return this.http.get<Rule[]>(this.configUrl + 'rules');
+  }
+
 
   getButtonNames(): Observable<BtnName[]> {
     return this.http.get<BtnName[]>(this.configUrl + 'buttonnames');

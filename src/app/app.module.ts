@@ -17,6 +17,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreviewAddComponent } from './components/add-question/preview-add/preview-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { RulesModalComponent } from './components/modals/rules-modal/rules-modal.component';
+import { RulesComponent } from './components/rules/rules.component';
+import { RuleComponent } from './components/rules/rule/rule.component';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -31,7 +35,10 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     FormsComponent,
     NavHomeComponent,
     NavAddComponent,
-    PreviewAddComponent
+    PreviewAddComponent,
+    RulesModalComponent,
+    RulesComponent,
+    RuleComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +48,12 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     ReactiveFormsModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [NgbActiveModal ],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
-<img *ngIf="Question!.img1; else simpleQuestion" [src]="sanitizeImageUrl(Question!.img1)" class="card-img-top" alt="..." />
+<img *ngIf="Question!.img1; else defaultImg" [src]="sanitizeImageUrl(Question!.img1)" class="card-img-top" alt="..." />
 
-<ng-template #simpleQuestion>
+<ng-template #defaultImg>
   <img  [src]="randomImg"  class="card-img-top" alt="..." />
 </ng-template>
 

@@ -142,5 +142,6 @@ export class FormsComponent implements OnInit {
       name: 'Välj en kategori',
       simple: 'N/A',
     };
+
   }
 }
