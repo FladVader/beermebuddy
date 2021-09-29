@@ -1,4 +1,9 @@
-/* .bmb-question-div {
+.question-card {
 
   border: 3px solid red;
-} */
+}
+
+.content-div {
+
+  border: 3px solid green;
+}
