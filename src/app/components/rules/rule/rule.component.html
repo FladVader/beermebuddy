@@ -19,19 +19,19 @@
       </div>
     </div> -->
 
-    <div class="card mb-3 text-center" >
+    <div class="card mb-3 text-center" (click)="openRule()" >
       <div class="row g-0 d-flex flex-wrap align-items-center">
         <div class="col-3">
-          <img src={{rule.icon}} class="img-responsive rounded-start rule-img" alt="...">
+          <img src={{rule.icon}} class="img-responsive rounded-start rule-img" alt="..." >
         </div>
         <div class="col-9">
-          <div class="card-body">
-            <h6 class="card-title rule-title">{{rule.name}}</h6>
-            <p class="card-text rule-text">{{rule.description}}</p>
+          <div >
+            <h5 >{{rule.name}}</h5>
           </div>
         </div>
       </div>
     </div>
+
 
     <!-- <div class="card bg-dark text-white">
       <img src={{rule.icon}} class="card-img" alt="...">

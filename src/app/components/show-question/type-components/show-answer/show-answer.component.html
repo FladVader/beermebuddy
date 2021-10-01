@@ -4,13 +4,13 @@
     <div class="modal-dialog">
       <div class="modal-content text-center">
         <div class="modal-body">
-          <img *ngIf="Question?.img2;else defaultImage" [src]="sanitizeImageUrl(Question!.img2)" class="card-img-top"
+          <img *ngIf="Question?.img2;else defaultImage" [src]="sanitizeImageUrl(Question!.img2)" class="card-img-top bmb-card-img-top"
             alt="..." />
             <ng-template #defaultImage>
-              <img *ngIf="!Question?.img2 && randomImg" [src]="randomImg"  class="card-img-top" alt="..." />
+              <img *ngIf="!Question?.img2 && randomImg" [src]="randomImg"  class="card-img-top bmb-card-img-top" alt="..." />
             </ng-template>
-          <div class="card-body" id="answer-body">
-            <p class="card-text">{{ Question?.answer }}</p>
+          <div class="card-body bmb-card-body" id="answer-body">
+            <p class="card-text bmb-card-text">{{ Question?.answer }}</p>
           </div>
         <div class="btn-div mx-auto d-flex aligns-items-center justify-content-center">
           <button (click)="nextQuestion()" type="button" class="btn btn-lg bmb-btn"

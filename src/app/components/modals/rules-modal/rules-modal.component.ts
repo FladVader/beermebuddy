@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Rule } from 'src/app/interfaces/rule';
 import { DataServiceService } from 'src/app/services/data-service.service';
 
@@ -9,20 +10,14 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 })
 export class RulesModalComponent implements OnInit {
 
-  rules: Rule[] = [];
+  @Input() rule?: Rule;
 
-  constructor(private dataService: DataServiceService) { }
+  constructor(public activeModal: NgbActiveModal) { }
 
-  getRules() {
-    this.dataService.getRules().subscribe(data => {
-      this.rules = data as Rule[];
-      console.log(this.rules)
-    })
-  }
 
   ngOnInit(): void {
 
-    this.getRules()
+
 
 
 

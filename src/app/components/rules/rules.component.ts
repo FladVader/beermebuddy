@@ -13,8 +13,8 @@ rules: Rule [] = [];
 
   constructor(public activeModal: NgbActiveModal, private dataService: DataServiceService) { }
 
-  getRules() {
-    this.dataService.getRules().subscribe(data => {
+  async getRules() {
+  this.dataService.getRules().subscribe(data => {
       this.rules = data as Rule[];
       console.log(this.rules)
     })

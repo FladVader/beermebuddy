@@ -1,10 +1,10 @@
 <img *ngIf="Question!.img1; else defaultImg" [src]="sanitizeImageUrl(Question!.img1)" class="card-img-top" alt="..." />
 
 <ng-template #defaultImg>
-  <img  [src]="randomImg"  class="card-img-top" alt="..." />
+  <img  [src]="randomImg"  class="card-img-top bmb-card-img-top" alt="..." />
 </ng-template>
 
-<div class="card-body">
-  <h5 class="card-title">{{ Question?.name }}</h5>
-  <p class="card-text">{{ Question?.statement }}</p>
+<div class="card-body bmb-card-body">
+  <h5 class="card-title bmb-card-title">{{ Question?.name }}</h5>
+  <p class="card-text bmb-card-text">{{ Question?.statement }}</p>
 </div>

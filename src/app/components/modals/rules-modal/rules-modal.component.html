@@ -1,19 +1,7 @@
-<div class="modal" id="rulesModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+<div class="card text-center rule-modal-card" style="box-shadow: 2px 11px 11px -2px rgba(0,0,0,0.39);">
+  <img src={{rule?.icon}} class="img-responsive rule-modal-icon" alt="...">
+  <div>
+    <h4 class="card-title ">{{rule?.name}}</h4>
+    <p class="card-text ">{{rule?.description}}</p>
   </div>
 </div>

@@ -6,7 +6,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-center">
         <div class="modal-body">
-          <img *ngIf="newImg" [src]="sanitizeImageUrl(newImg.url)" class="card-img-top" alt="..." />
+          <img *ngIf="newImg" [src]="sanitizeImageUrl(newImg.url)" class="card-img-top bmb-card-img-top" alt="..." />
         </div>
         <div class="modal-footer">
           <button (click)="submitImg()" type="submit" class="btn btn-success" data-bs-dismiss="modal">Spara</button>
@@ -25,7 +25,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-center">
         <div class="modal-body">
-          <h5 class="card-title">Såhär kommer knappen se ut:</h5>
+          <h5 class="card-title bmb-card-title">Såhär kommer knappen se ut:</h5>
           <button  type="button"
           class="btn btn-lg bmb-btn">{{newBtnName?.name}}</button>
         </div>
@@ -64,27 +64,27 @@
 <!-- QUESTION CONTENT -->
 
             <div class="tab-pane fade show active" id="question" role="tabpanel" aria-labelledby="home-tab">
-              <img *ngIf="newQuestion?.img1" [src]="sanitizeImageUrl(newQuestion!.img1)" class="card-img-top"
+              <img *ngIf="newQuestion?.img1" [src]="sanitizeImageUrl(newQuestion!.img1)" class="card-img-top bmb-card-img-top"
                 alt="..." />
 
-                <img *ngIf="!newQuestion?.img1" [src]="firstRandomImage" class="card-img-top"
+                <img *ngIf="!newQuestion?.img1" [src]="firstRandomImage" class="card-img-top bmb-card-img-top"
                 alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">{{ newQuestion?.name }}</h5>
-                <p class="card-text">{{ newQuestion?.statement }}</p>
+              <div class="card-body bmb-card-body">
+                <h5 class="card-title bmb-card-title">{{ newQuestion?.name }}</h5>
+                <p class="card-text bmb-card-text">{{ newQuestion?.statement }}</p>
               </div>
             </div>
 
 <!-- ANSWER CONTENT -->
 
             <div class="tab-pane fade" id="answer" role="tabpanel" aria-labelledby="profile-tab">
-              <img *ngIf="newQuestion?.img2" [src]="sanitizeImageUrl(newQuestion!.img2)" class="card-img-top"
+              <img *ngIf="newQuestion?.img2" [src]="sanitizeImageUrl(newQuestion!.img2)" class="card-img-top bmb-card-img-top"
                 alt="..." />
-                <img *ngIf="!newQuestion?.img2" [src]="secondRandomImage" class="card-img-top"
+                <img *ngIf="!newQuestion?.img2" [src]="secondRandomImage" class="card-img-top bmb-card-img-top"
                 alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Svar:</h5>
-                <p class="card-text">{{ newQuestion?.answer }}</p>
+              <div class="card-body bmb-card-body">
+                <h5 class="card-title bmb-card-title">Svar:</h5>
+                <p class="card-text bmb-card-text">{{ newQuestion?.answer }}</p>
               </div>
             </div>
           </div>
